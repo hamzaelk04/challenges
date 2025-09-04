@@ -7,7 +7,7 @@ int main() {
     float prix[100];
     float somme;
     int quantite[100];
-    int choix, i, c = 0;
+    int choix, i, c = 0, nbr_ajout, compteur;
 
     printf("            Système de Gestion de Stock dans une Librairie\n");
     printf("            _______________________________________________\n");
@@ -22,19 +22,26 @@ int main() {
     printf("Entre votre choix: ");
     scanf("%d", &choix);
 
+    c = 0;
+    compteur = 0;
 
     switch (choix)
     {
     case 1:
-        printf ("\nAjouter le titre du livre: ");
-        scanf ("%s", title);
-        printf ("\nAjouter l'auteur du livre: ");
-        scanf ("%s", act);
-        printf ("\nAjouter le prix du livre: ");
-        scanf ("%f", &prix);
-        printf ("\nAjouter l du livre: ");
-        scanf ("%d", &quantite);
-        c = c + 1;
+	printf("Donnez le nombre de livres que vous voulez d'ajouter: ");
+	scanf("%d", &nbr_ajout);
+        for (i = c ; i < c + nbr_ajout ; i++) {
+		    printf ("\nAjouter le titre du livre %d: ", i + 1);
+        	scanf ("%s", title[i]);
+        	printf ("\nAjouter l'auteur du livre %d: ", i + 1);
+        	scanf ("%s", act[i]);
+        	printf ("\nAjouter le prix du livre %d: ", i + 1);
+        	scanf ("%f", &prix[i]);
+        	printf ("\nAjouter la quantite du livre %d: ", i + 1);
+        	scanf ("%d", &quantite[i]);
+        	compteur = compteur + 1;
+	}
+	c = compteur;
         break;
     case 2:
         for ( i = 0; i < c; i++){
